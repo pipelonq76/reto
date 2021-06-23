@@ -1,0 +1,51 @@
+.fotos {
+	padding-top: 10px;
+
+}
+.contenedor {
+	margin: 50px;
+	padding: 100px;
+	border-width: 10px;
+	border-color: black;
+	border-style: solid;
+	background-color: #ff4d4d;
+
+}
+
+.label {
+	font-size: 20px;
+	font-family: titulo3;
+}
+
+
+
+.titulo {
+	font-family: titulo;
+}
+
+.titulo2 {
+	font-family: titulo2;
+}
+.titulo3 {
+	font-family: titulo3;
+}
+
+.titulo3-name {
+	font-family: titulo3;
+	font-size: 40px;
+}
+@font-face{
+	font-family: titulo;
+	src: url("../fonts/Ananda Personal Use.ttf");
+	
+}
+@font-face{
+	font-family: titulo2;
+	src: url("../fonts/Hello Valentina.ttf");
+}
+
+@font-face{
+	font-family: titulo3;
+	src: url("../fonts/CaviarDreams.ttf");
+}
+/** ADD YOUR AWESOME CODES HERE **/
