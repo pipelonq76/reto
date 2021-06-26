@@ -169,6 +169,15 @@
                                     <textarea type="text" name="input_descripcion_adoptante" class="form-control" placeholder="Hablanos de ti" required></textarea>
                                 </div>
 
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label class="label"><strong>Nombre de la mascota</strong></label>
+                                    <select class="form-control" name="input_nombre_mascota">
+                                        <% for (let i = 0 ; i < adopcion.length ; i++) {%> 
+                                    <option value="<%=adopcion[i].nombre_mascota %>"><%=adopcion[i].nombre_mascota %></option>  
+                                     <% } %> 
+                                    </select>
+                                </div>
+
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                                     <button onclick="validarDatos()" type="submit" value="SEND" id="enviar" class="btn btn-light btn-radius btn-brd grd1 btn-block subt">Enviar</button>
                                 </div>

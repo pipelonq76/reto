@@ -377,14 +377,15 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 
 
 
-	
-//registro usuario
+	//registro usuario
 	app.post('/registro', async(req,res) => {
 		const {input_documento, input_fecha_de_nacimiento, firstName, email, direccion, pass, phone, pass1, input_rol} = req.body;
 		console.log(req.body);
-		console.log(input_documento);
 		let inputReContrasena = await bcryptjs.hash(pass, 8);
-		if (validacion===false){
+		connection.query("SELECT * FROM usuario WHERE documento = ?", [input_documento], (err,results)=>{
+			if (results.length===0){
+				
+
 			connection.query ("INSERT INTO usuario SET ?", {
 				documento: input_documento,
 				nombre: firstName,
@@ -395,33 +396,37 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 				contrasena: inputReContrasena,
 				rol: input_rol
 
-			},  (error, results)=>{
-				if (error){
-					console.log(error);
-				} else{
+			},  (err, results)=>{
+				if (err){
+					res.send(err);
+				} else {
+					res.redirect("/")
+				}
+
+			})
+		
+				} else {
 					res.render('../views/registro.ejs', {
 						alert: true,
-						alertTitle: "Registration",
-						alertMessage: "successful Registration",
-						alertIcon: "success",
-						showConfirmButton: false,
-						timer: 1500,
-						ruta:''
-					});
-				}
-			})	
-		} else {
-				res.render('../views/registro.ejs', {
-						alert: true,
-						alertTitle: "error",
-						alertMessage: "Error al registrarse",
+						alertTitle: "Registracion",
+						alertMessage: "error al registrarse",
 						alertIcon: "error",
 						showConfirmButton: false,
 						timer: 1500,
-						ruta:'registro'
+						ruta:'/registro'
 					});
-			};
+				}
+				
+	
+			});
 		});	
+
+
+
+		
+	
+		
+
 
 
 
@@ -508,7 +513,7 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 		});
 
 		app.post('/formulario_adopcion_mascota', async(req,res) => {
-		const {input_documento_adoptante, input_nombre_adoptante, input_telefono_adoptante, input_sexo_adoptante, input_correo_adoptante, input_fecha_de_nacimiento_adoptante, input_direccion_adoptante, input_ingresos_mensuales, input_experiencia_mascotas_adoptante, input_tipo_mascota_adoptante, input_descripcion_adoptante} = req.body;
+		const {input_documento_adoptante, input_nombre_adoptante, input_telefono_adoptante, input_sexo_adoptante, input_correo_adoptante, input_fecha_de_nacimiento_adoptante, input_direccion_adoptante, input_ingresos_mensuales, input_experiencia_mascotas_adoptante, input_tipo_mascota_adoptante, input_descripcion_adoptante,input_nombre_mascota} = req.body;
 		console.log(req.body);
 		if (validacion===false){
 			connection.query ("INSERT INTO adoptante SET ?", {
@@ -523,6 +528,7 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 				experiencia_mascotas: input_experiencia_mascotas_adoptante,
 				tipo_mascota_favorita: input_tipo_mascota_adoptante,
 				descripcion_adoptante: input_descripcion_adoptante,
+				nombre_mascota: input_nombre_mascota,
 			},  (error, results)=>{
 				if (error){
 					console.log(error);

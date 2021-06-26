@@ -29,6 +29,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/resources/css/custom.css">
 
+  
+  
+
+
+
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -159,7 +164,34 @@
 									<%= adopcion[i].sexo_mascota %><br>
 								</h2>
 								<% if (rol == "administrador") {%>
-								<a class="btn btn-light btn-radius btn-brd grd1 effect-1" href="delete/<%=adopcion[i].Id_mascotas%>">eliminar a <%= adopcion[i].nombre_mascota%></a><br>
+
+					
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalBorrar<%= adopcion[i].Id_mascotas %>">Borrar a <%=adopcion[i].nombre_mascota%></button>
+
+
+								<div class="modal fade" id="ModalBorrar<%= adopcion[i].Id_mascotas %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  								<div class="modal-dialog" role="document">
+	    								<div class="modal-content">
+	      									<div class="modal-header">
+	        									<h5 class="modal-title" id="exampleModalabel">Advertencia</h5>
+	        										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          											<span aria-hidden="true">&times;</span>
+	        										</button>
+	      									</div>
+	      									<div class="modal-body">
+	      										¿Realmente quieres borrar a <%=adopcion[i].nombre_mascota%>? este cambio es permanente
+	      									</div>
+	      									<div class="modal-footer">
+	        									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+	           									<a href="delete/<%=adopcion[i].Id_mascotas %>" class="btn btn-danger">Aceptar</a>
+				      						</div>
+									   </div>
+									 </div>
+								</div>
+
+
+								
+
 								<% } %>
 								<% if (login) { %>
 								<a class="btn btn-light btn-radius btn-brd grd1 effect-1" href="/formulario_adopcion_mascota">Adoptar a <%= adopcion[i].nombre_mascota %></a>
@@ -170,6 +202,8 @@
 									<% } %>
 								</div><!-- end issue -->
 
+
+
 							</div><!-- end col -->
 						
 					</div><!-- end container -->
@@ -177,6 +211,9 @@
 
 			</div><!-- end container -->
 		</div><!-- end section -->
+
+
+
 
 		<div class="copyrights">
 			<div class="container">
@@ -196,6 +233,10 @@
 			</div><!-- end container -->
 		</div><!-- end copyrights -->
 	</div>
+
+
+
+
     
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
