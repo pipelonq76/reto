@@ -4,7 +4,9 @@ const { changeUser } = require("../../config/db");
 validacion=false
 
 
+
 module.exports= app => {
+
 	app.get('/', (req,res) => {
 	
 
@@ -364,8 +366,8 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 			else {
 					res.render('../views/login2.ejs', {
 						alert: true,
-						alertTitle: "La mascota ha sido eliminada satisfactoriamente",
-						alertMessage: "la mascota ha sido eliminada de manera correcta",
+						alertTitle: "La peticion ha sido eliminada satisfactoriamente",
+						alertMessage: "la peticion ha sido eliminada de manera correcta",
 						alertIcon: "success",
 						showConfirmButton: false,
 						timer: 1500,
@@ -383,7 +385,7 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 		console.log(req.body);
 		let inputReContrasena = await bcryptjs.hash(pass, 8);
 		connection.query("SELECT * FROM usuario WHERE documento = ?", [input_documento], (err,results)=>{
-			if (results.length===0){
+			if (results.length===0 & validacion===false){
 				
 
 			connection.query ("INSERT INTO usuario SET ?", {
@@ -400,7 +402,16 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 				if (err){
 					res.send(err);
 				} else {
-					res.redirect("/")
+					res.render('../views/registro.ejs', {
+						alert: true,
+						alertTitle: "Registracion exitosa",
+						alertMessage: "Bienvenido a huellitas con amor",
+						alertIcon: "success",
+						showConfirmButton: false,
+						timer: 1500,
+						ruta:'/'
+					});
+
 				}
 
 			})
@@ -413,7 +424,7 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 						alertIcon: "error",
 						showConfirmButton: false,
 						timer: 1500,
-						ruta:'/registro'
+						ruta:'registro'
 					});
 				}
 				
@@ -535,8 +546,8 @@ app.get('/formulario_mascotas_extraviadas', (req,res) => {
 				} else{
 					res.render('../views/formulario_adopcion.ejs', {
 						alert: true,
-						alertTitle: "Informacion subida de manera satisfactoria",
-						alertMessage: "La informacion de la nueva mascota ha sido subida de manera satisfactoria",
+						alertTitle: "peticion subida de manera satisfactoria",
+						alertMessage: "La peticion de la nueva mascota ha sido subida de manera satisfactoria",
 						alertIcon: "success",
 						showConfirmButton: false,
 						timer: 1500,

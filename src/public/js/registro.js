@@ -71,30 +71,36 @@ function compararContrasena()
 }
 
 
+function tamañoContrasena(){
+	var getContrasena=document.getElementById("inputContrasena")
+	var contrasena=getContrasena.value
+	if (contrasena.length>8){
+		return true
+	}
+	else {
+		alert("la contraseña es muy corta")
+		return false
+	}
+}
+
+
 
 
 
 function validarDatos()
 {
-	var getContrasena=document.getElementById('inputContrasena')
-	var getReContrasena=document.getElementById('inpuReContrasena')
-	var getCorreo=document.getElementById('inputCorreo')
-	if (validarCorreo() && compararContrasena())
+	
+	if (validarCorreo() && compararContrasena() && tamañoContrasena())
 	{
-		var name1=document.getElementById('firstName')
-		var name2=document.getElementById('lastName')
-		var getphone=document.getElementById('phone')
-		correos.push(getCorreo.value)
-		contrasenas.push(getContrasena.value)
-		firstNames.push(name1.value)
-		lastNames.push(name2.value)
-		phones.push(getphone.value)
 
+		validacion=true
+		
 
 	}
-	var datos=[firstNames,lastNames,correos,contrasenas,phones]
-	console.log(datos)
+	
 }
+
+export default validarDatos;
 
 
 

@@ -178,7 +178,7 @@
 								<% if (rol == "administrador") {%>
 							
 
-								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalBorrar<%= mascotas[i].Id_mascota_extraviada %>">X</button>
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalBorrar<%= mascotas[i].id_mascota_extraviada %>">X</button>
 
 
 								<div class="modal fade" id="ModalBorrar<%= mascotas[i].Id_mascota_extraviada %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -195,7 +195,7 @@
 	      									</div>
 	      									<div class="modal-footer">
 	        									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-	           									<a href="delete/<%=mascotas[i].Id_mascota_extraviada %>" class="btn btn-primary">Aceptar</a>
+	           									<a href="delete/<%=mascotas[i].id_mascota_extraviada %>" class="btn btn-primary">Aceptar</a>
 				      						</div>
 									   </div>
 									 </div>
