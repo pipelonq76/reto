@@ -1,13 +1,17 @@
+CREATE DATABASE IF NOT EXISTS reto;
+
+USE reto;
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2021 a las 20:13:50
--- Versión del servidor: 10.4.18-MariaDB-
--- Versión de PHP: 8.0.5
+-- Tiempo de generación: 01-07-2021 a las 19:51:45
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +22,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `adopcion`
+-- Base de datos: `reto`
 --
 
 -- --------------------------------------------------------
@@ -28,48 +32,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `administrador` (
-  `cedula_admin` int(30) NOT NULL,
-  `correo_admin` varchar(45) NOT NULL,
-  `contrasena_admin` varchar(30) NOT NULL
+  `id_administrador` int(255) NOT NULL,
+  `nombre_admin` varchar(45) NOT NULL,
+  `contrasena_admin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `citas_revision`
+-- Volcado de datos para la tabla `administrador`
 --
 
-CREATE TABLE `citas_revision` (
-  `Id_Mascotas` int(11) NOT NULL,
-  `documento` int(11) NOT NULL,
-  `fecha_cita` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `mascotas`
---
-
-CREATE TABLE `mascotas` (
-  `Id_mascotas` int(11) NOT NULL,
-  `nombre_mascota` varchar(20) NOT NULL,
-  `raza` varchar(20) NOT NULL,
-  `sexo_mascota` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `mascotas_estraviadas`
---
-
-CREATE TABLE `mascotas_estraviadas` (
-  `id_mascotas_estraviadas` int(155) NOT NULL,
-  `nombre_mascotas_estraviadas` varchar(30) NOT NULL,
-  `raza_mascotas_estraviadas` varchar(50) NOT NULL,
-  `sexo_mascotas_estraviadas` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `administrador` (`id_administrador`, `nombre_admin`, `contrasena_admin`) VALUES
+(18, 'admin', '$2a$08$0xy1qxQIoFhPnN3UuqDI9OrsXsmcj2LPWAeZqy4hBl6XgOJqUuhZO');
 
 -- --------------------------------------------------------
 
@@ -78,23 +51,23 @@ CREATE TABLE `mascotas_estraviadas` (
 --
 
 CREATE TABLE `usuario` (
-  `documento` int(11) NOT NULL,
-  `nombre` varchar(60) NOT NULL,
-  `telefono` int(10) NOT NULL,
-  `correo_electronico` varchar(60) NOT NULL,
-  `fecha_de_nacimiento` date NOT NULL,
-  `direccion` varchar(40) NOT NULL,
-  `contrasena` varchar(255) NOT NULL
+  `id_usuario` int(255) NOT NULL,
+  `nombre_completo_usuario` varchar(45) NOT NULL,
+  `nombre_usuario` varchar(45) NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fecha_edicion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `contrasena_usuario` varchar(255) NOT NULL,
+  `estado_usuario` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`documento`, `nombre`, `telefono`, `correo_electronico`, `fecha_de_nacimiento`, `direccion`, `contrasena`) VALUES
-(0, '', 0, '', '0000-00-00', '', '$2a$08$m0BxIzpqcKMPC8bMZ9KovOXuBUroiN5tMe4jcLfO0hyDvDs7EcVcW'),
-(12323, '', 0, 'feasa@gmail.com', '0000-00-00', '', '$2a$08$VjTMAsSbGBIHn8ieCZJlUOzMCxqZUMwej2OaqZlpeZRAh8AP2TYNG'),
-(3232323, 'mlosss', 544545, 'fwfwf@hbhbc.com', '2000-02-01', 'wefef', '$2a$08$0gbSOtQrsyZwSZEEZAxGROb5r/r2AytvIrS/uu.t9GIbIpPld8/UK');
+INSERT INTO `usuario` (`id_usuario`, `nombre_completo_usuario`, `nombre_usuario`, `fecha_creacion`, `fecha_edicion`, `contrasena_usuario`, `estado_usuario`) VALUES
+(35, 'fdff', 'f', '2021-07-01 17:26:18', '2021-07-01 17:42:43', 'dsd', 0),
+(36, 'archivo editado', 'editado', '2021-07-01 17:26:37', '2021-07-01 17:26:37', 'dsd', 1),
+(37, 'cvh', 'hgh', '2021-07-01 17:28:52', '2021-07-01 17:28:52', 'hghgh', 1);
 
 --
 -- Índices para tablas volcadas
@@ -104,32 +77,13 @@ INSERT INTO `usuario` (`documento`, `nombre`, `telefono`, `correo_electronico`, 
 -- Indices de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  ADD PRIMARY KEY (`cedula_admin`);
-
---
--- Indices de la tabla `citas_revision`
---
-ALTER TABLE `citas_revision`
-  ADD KEY `Id_Mascotas` (`Id_Mascotas`),
-  ADD KEY `documento` (`documento`);
-
---
--- Indices de la tabla `mascotas`
---
-ALTER TABLE `mascotas`
-  ADD PRIMARY KEY (`Id_mascotas`);
-
---
--- Indices de la tabla `mascotas_estraviadas`
---
-ALTER TABLE `mascotas_estraviadas`
-  ADD PRIMARY KEY (`id_mascotas_estraviadas`);
+  ADD PRIMARY KEY (`id_administrador`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`documento`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -139,24 +93,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `cedula_admin` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_administrador` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `mascotas`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
-ALTER TABLE `mascotas`
-  MODIFY `Id_mascotas` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `citas_revision`
---
-ALTER TABLE `citas_revision`
-  ADD CONSTRAINT `citas_revision_ibfk_1` FOREIGN KEY (`Id_Mascotas`) REFERENCES `mascotas` (`Id_mascotas`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `citas_revision_ibfk_2` FOREIGN KEY (`documento`) REFERENCES `usuario` (`documento`) ON UPDATE CASCADE;
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -8,10 +8,12 @@
 	border-width: 10px;
 	border-color: black;
 	border-style: solid;
-	background-color: #ff4d4d;
+	background-color: #3742fa;
 
 }
-
+.mlo {
+	padding: 30px;
+}
 .label {
 	font-size: 20px;
 	font-family: titulo3;

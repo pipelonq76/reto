@@ -55,16 +55,7 @@
 					<span class="icon-bar middle-bar"></span>
 					<span class="icon-bar bottom-bar"></span>
 				</button>
-                <div class="collapse navbar-collapse" id="navbars-rs-food">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/adopta">Adopta</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/donaciones">Donaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/sobre_nosotros">Sobre nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mascotas_extraviadas">Mascotas extraviadas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login2">Iniciar sesion</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="/registro">Registro</a></li>
-                    </ul>
+              
                 </div>
             </div>
         </nav>
@@ -77,8 +68,7 @@
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <small>Bienvenido a huellitas con amor</small>
-                    <h3 class="titulo">Registro</h3>
+                    <h3 class="titulo">Registro administrador</h3>
                 </div>
             </div>
             <!-- end title -->
@@ -87,49 +77,31 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="contact_form" style="box-shadow: 3px 3px 3px 3px black; border-radius: 30px;">
                         <div id="message"></div>
-                        <form id="contactform" class="row" action="/registro" name="contactform" method="post">
+                        <form id="contactform" class="row" action="/registro_admin" name="contactform" method="post">
                             <fieldset class="row row-fluid">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Documento de identidad</label>
-                                    <input type="text" name="input_documento" id="input_documento" class="form-control" placeholder="documento" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Fecha de nacimiento</label>
-                                    <input type="date" name="input_fecha_de_nacimiento" id="input_fecha_de_nacimiento" class="form-control" placeholder="fecha de nacimiento" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            
+                            
+
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label class="label">Nombre completo</label>
                                     <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Nombre completo" required>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Correo electrónico</label>
-                                    <input type="email" name="email" id="inputCorreo" class="form-control" placeholder="Tu Email" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Dirección</label>
-                                    <input type="text" name="direccion" id="direccion" class="form-control" placeholder="dirección" required>
-                                </div>
+
+
+                                
+                              
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label class="label">Introduce una contraseña</label>
                                     <input type="password" name="pass" id="inputContrasena" class="form-control" placeholder="Introduce una contraseña" required>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Telefono</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Teléfono" required>
-                                </div>
+                              
 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label class="label">Vuelve a introducir la contraseña</label>
                                     <input type="password" name="pass1" id="inputReContrasena" class="form-control" placeholder="Vuelve a introducir la contraseña" required>
                                 </div>
 
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                   <select class="form-control" name="input_rol">
-                                    <option value="administrador">administrador</option>
-                                    <option value="usuario">usuario</option>   
-                                   </select>
-                                </div>
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                                     <button onclick="validarDatos()" type="submit" value="SEND" id="enviar" class="btn btn-light btn-radius btn-brd grd1 btn-block subt">Enviar</button>
@@ -146,27 +118,6 @@
     </div>
     <!-- end section -->
 
-
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">
-                    <p class="footer-links">
-                        <a href="/">Inicio</a>
-                        <a href="/adopta">Adopta</a>
-                        <!-- <a href="#">Pricing</a> -->
-                        <a href="#">Sobre Nosotros</a>
-                        <a href="/mascotas_extraviadas">Mascotas extraviadas</a>
-                        <a href="/donaciones">Donaciones</a>
-                    </p>
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="#">Huellitas con amor</a></p>
-                </div>
-            </div>
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end copyrights -->
-    </div>
 
 
 

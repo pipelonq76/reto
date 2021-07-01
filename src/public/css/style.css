@@ -539,7 +539,7 @@ a img.aligncenter {
     display: block;
     position: relative;
     overflow: hidden;
-    padding: 70px 0;
+    padding: 0px 0;
 }
 
 .noover {
@@ -2358,7 +2358,7 @@ select.mobile-device {
 -------------------------------------------------------------------*/
 
 .all-page-bar{
-	background: url("/resources/images/image2.jpg") no-repeat center;
+	background: url("/resources/images/hatsune.png") no-repeat center;
 	background-size: cover;
 	position: relative;
 }

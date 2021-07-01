@@ -7,15 +7,15 @@
    
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
+
      <!-- Site Metas -->
-    <title>Peticiones</title>  
+    <title>usuarios</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="/resources/images/adoptar.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/resources/images/miku.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/resources/images/adoptar.png">
 
     <!-- Bootstrap CSS -->
@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="/resources/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/resources/css/custom.css">
+
+  
+  
+
+
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -47,7 +52,7 @@
 			<span class="leaf4"></span>
 		  </div>
 		  <div class="mus">
-			<img src="/resources/images/adoptar.png" height="50" alt="" />
+			<img src="/resources/images/miku.ico" height="50" alt="" />
 		  </div>
 		  <span class="loading" data-name="Loading">Cargando...</span>
 		</div>
@@ -63,7 +68,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 			<div class="container">
 				<a class="navbar-brand" href="/">
-					<img src="/resources/images/adoptar.png" style="border-radius: 50%"  height="50" alt="" />
+					<img src="/resources/images/miku.ico" style="border-radius: 10%"  height="50" alt="" />
 				</a>
 				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar top-bar"></span>
@@ -72,24 +77,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-						<li class="nav-item"><a class="nav-link" href="/adopta">Adopta</a></li>
-						<li class="nav-item"><a class="nav-link" href="/donaciones">Donaciones</a></li>
-						<li class="nav-item"><a class="nav-link" href="/sobre_nosotros">Sobre nosotros</a></li>
-						<li class="nav-item"><a class="nav-link" href="/mascotas_extraviadas">Mascotas extraviadas</a></li>
 						
+						<li class="nav-item active"><a class="nav-link" href="/adopta">usuarios</a></li>
+						<li class="nav-item"><a class="nav-link" href="/activos">activos</a></li>
+					
 						<% if (login) { %>
-							<li class="nav-item"><a class="nav-link" href="#"><%=nombre%></a></li>
+							
 							<li class="nav-item"><a class="nav-link" href="/logout">Cerrar sesión</a></li>
 						<% } else { %>
 							<li class="nav-item"><a class="nav-link" href="/login2">Iniciar Sesion</a></li>
-							<li class="nav-item"><a class="nav-link" href="/registro">Registro</a></li>
-						
 						<% } %>
-							<% if (rol=="administrador") {%>
-						<li class="nav-item active"><a class="nav-link" href="/registro">Peticiones</a></li>
-						<% } %>
-
+					
 
 					</ul>
 				</div>
@@ -110,7 +108,7 @@
 							</div>
 							
 							<div class="title--heading">
-								<h1 class="titulo">Peticiones</h1>
+								<h1 class="titulo">Usuarios</h1>
 							</div>
 							<div class="clearfix"></div>
 							
@@ -122,93 +120,63 @@
 			</div>
 		</div><!-- end all-page-bar -->
 		
+		
 		<div id="services" class="section lb">
-			<div class="container">
+			<div class="mlo">
 				<div class="section-title row text-center">
-					<div class="col-md-8 offset-md-2">
-					<small>Bienvenido a huellitas con amor</small>
-					<h3>Encuentra a tu amigo peludo</h3>
-					<hr class="grd1">
-					<p class="lead">Reconcilia a tu familia, encuentra a tu compañero perdido</p>
-					</div>
-				</div><!-- end title -->
+					<% if (login) { %>
+					<a class="btn btn-light btn-radius btn-brd grd1 effect-1" href="/formulario_nuevo_usuario">Ingresa un nuevo usuario</a>
 
-											
+					<a href="activos" class="btn btn-light btn-radius btn-brd grd1 effect-1">ver usuarios activos</a>
+					
+					
+				</div>
+			</div><!-- end issue -->
+		</div><!-- end title -->
 			
 						<div class="service-wrap text-center lastchild clearfix">
-								<% for (let i = 0; i < adoptante.length; i++) { %>
+
+
 							
-									<div class="contenedor">
-									<h2 class="titulo3-name">
-										<p><strong class="titulo3-name">Documento de identidad</strong></p>
-										<p><strong><%= adoptante[i].documento_adoptante %></strong></p>
-									</h2>
-									<h2 class="titulo3">
-										<p><strong>Nombre</strong></p>
-										<%= adoptante[i].nombre_adoptante %>
-									</h2>
-									<h2 class="titulo3">
-										<p><strong>Telefono</strong></p>
-										<%= adoptante[i].telefono_adoptante %>
-									</h2>
-									<h2 class="titulo3">
-										<p><strong>Sexo del adoptante</strong></p>
-										<%= adoptante[i].sexo_adoptante %><br>
-									</h2>
-
-									<h2 class="titulo3">
-										<p><strong>Correo electronico</strong></p>
-										<%= adoptante[i].correo_electronico_adoptante %><br>
-									</h2>
 
 
-									<h2 class="titulo3">
-										<p><strong>Fecha de nacimiento</strong></p>
-										<%= adoptante[i].Fecha_de_nacimiento_adoptante %><br>
-									</h2>
+  <div class="container">
+        <div class="text-center">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>Nombre de usuario</th>
+                    <th>Fecha creacion de la cuenta</th>
+                    <th>Ultima edicion datos</th>
+                    <th>Estado</th>
+                   
+                    <th>Borrar</th>
+                    <th>Editar</th>
+                </tr>
+                <% for (let i = 0; i < usuario.length; i++) { %>
+                    <tr>
+                        <th><%= usuario[i].nombre_completo_usuario %></th>
+                        <th><%= usuario[i].nombre_usuario %></th>
+                        <th><%= usuario[i].fecha_creacion%></th>
+                        <th><%= usuario[i].fecha_edicion %></th>
+                        <% if (usuario[i].estado_usuario == 1) { %>
+                        <th>activo</th>
+                        <% } else { %>
+                        <th>inactivo</th>
+                        <% } %> 
+                        
 
-									<h2 class="titulo3">
-										<p><strong>Direccion del adoptante</strong></p>
-										<%= adoptante[i].direccion_adoptante %><br>
-									</h2>
+                        <th>
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalBorrar<%= usuario[i].id_usuario %>">Borrar a <%=usuario[i].nombre_usuario%></button>
+						</th>
+                        <th> <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Editar
+  </button></th>
+                    </tr>
 
-									<h2 class="titulo3">
-										<p><strong>Ingresos mensuales</strong></p>
-										<%= adoptante[i].ingresos_mensuales %><br>
-									</h2>
-
-									<h2 class="titulo3">
-										<p><strong>Experiencias con anteriores mascotas</strong></p>
-										<%= adoptante[i].experiencia_mascotas %><br>
-									</h2>
-
-									<h2 class="titulo3">
-										<p><strong>Tipo de mascota favorita</strong></p>
-										<%= adoptante[i].tipo_mascota_favorita %><br>
-									</h2>
-
-									<h2 class="titulo3">
-										<p><strong>Descripcion del adoptante</strong></p>
-										<%= adoptante[i].descripcion_adoptante %><br>
-									</h2>
-
-									<h2 class="titulo3">
-										<p><strong>Nombre de la mascota a adoptar</strong></p>
-										<%= adoptante[i].nombre_mascota %><br>
-									</h2>
-									
-
-
-
-
-
-
-
-								<% if (rol == "administrador") {%>
-
-								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalBorrar<%=adoptante[i].id_adoptante %>">Eliminar peticion</button>
-
-								<div class="modal fade" id="ModalBorrar<%=adoptante[i].id_adoptante %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <!-- Modal Borrar -->
+                    <div class="modal fade" id="ModalBorrar<%= usuario[i].id_usuario %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  								<div class="modal-dialog" role="document">
 	    								<div class="modal-content">
 	      									<div class="modal-header">
@@ -218,49 +186,58 @@
 	        										</button>
 	      									</div>
 	      									<div class="modal-body">
-	      										¿Realmente quieres borrar la peticion de <%=adoptante[i].nombre_adoptante%>? este cambio es permanente
+	      										¿Realmente quieres borrar a <%=usuario[i].nombre_usuario%>? este cambio es permanente
 	      									</div>
 	      									<div class="modal-footer">
 	        									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-	           									<a href="delete3/<%=adoptante[i].id_adoptante %>" class="btn btn-primary">Aceptar</a>
+	           									<a href="delete/<%=usuario[i].id_usuario %>" class="btn btn-danger">Aceptar</a>
 				      						</div>
 									   </div>
 									 </div>
 								</div>
-								<% } %>
-								<br>
-							</div>
-								
+				
+
+    <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      	<div class="modal-content">
+        	<div class="modal-header">
+          		<h4 class="modal-title">Modal Heading</h4>
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	</div>
+        <div class="modal-body">
+        	<form action="/edit/<%=usuario[i].id_usuario%>" method="post">
+        		<label>Nombre usuario</label>
+       				<input  class="form-control" type="text" name="nuevo_nombre_usuario" required>
+       			<label>nombre completo</label>
+       				<input  class="form-control" type="text" name="nuevo_nombre_completo_usuario" required>
+       			<label>Estado usuario</label>
+       				 <select class="form-control" name="estado_usuario">
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>   
+                     </select>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" href="/edit/<%=usuario[i].id_usuario%>" data-dismiss="modal">Close</button>
+        </div>
+        	<input type="submit" name="">
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>
+ <% } %>
+
+    <div class="container">
+
+  
+									<% } else { %>
+									<a href="/">iniciar sesion</a>
 									<% } %>
-
-									</div><!-- end issue -->
-									
-							</div><!-- end col -->
-						</div>
-					</div><!-- end container -->
-				</div><!-- end section -->
-
-		<div class="copyrights">
-			<div class="container">
-				<div class="footer-distributed">
-					<div class="footer-left">
-						<p class="footer-links">
-							<a href="#">Home</a>
-							<a href="#">Blog</a>
-							<a href="#">Pricing</a>
-							<a href="#">About</a>
-							<a href="#">Faq</a>
-							<a href="#">Contact</a>
-						</p>
-						<p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">Huellitas con amor</a> Design By : <a href="https://html.design/">html design</a></p>
-					</div>
-				</div>
-			</div><!-- end container -->
-		</div><!-- end copyrights -->
-	</div>
-    
-
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    </div>
 
     <!-- ALL JS FILES -->
     <script src="/resources/js/all.js"></script>

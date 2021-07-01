@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <!-- Site Metas -->
-<title>Formulario adopcion</title>
+<title>Formulario mascotas extraviadas</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -56,12 +56,16 @@
 				</button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/adopta">Adopta</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/donaciones">Donaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/sobre_nosotros">Sobre nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mascotas_extraviadas">Mascotas extraviadas</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="/usuarios">usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/activos">activos</a></li>
                     
+                        <% if (typeof login != "undefined") { %>
+                            
+                            <li class="nav-item"><a class="nav-link" href="/logout">Cerrar sesión</a></li>
+                        <% } else { %>
+                            <li class="nav-item"><a class="nav-link" href="/login2">Iniciar Sesion</a></li>
+                        <% } %>
+                     
                     </ul>
                 </div>
             </div>
@@ -75,7 +79,7 @@
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <h3 class="titulo">Formulario nueva mascota</h3>
+                    <h3 class="titulo">Formulario nuevo usuario</h3>
                 </div>
             </div>
             <!-- end title -->
@@ -84,47 +88,37 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="contact_form" style="box-shadow: 3px 3px 3px 3px black; border-radius: 30px;">
                         <div id="message"></div>
-                        <form id="contactform" class="row" action="/formulario_adopcion" name="contactform" method="post">
+                        <form id="contactform" class="row" action="/formulario_nuevo_usuario" name="contactform" method="post">
                             <fieldset class="row row-fluid">
                                 <div class="container">
                                     <div class="section-title row text-center">
                                         <div class="col-md-8 offset-md-2">
-                                            <h3 class="titulo3"><strong>Informacion de la nueva mascota</strong></h3>
+                                            <h3 class="titulo3">Informacion nuevo usuario</h3>
                                         </div>
                                     </div>
                                 </div>
 
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="label">Nombre de la mascota</label>
-                                    <input type="text" name="nombre_mascota" class="form-control" placeholder="Nombre de tu mascota" required>
-                                </div>
-
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                     <label class="label">Fecha de nacimiento de tu mascota</label>
-                                    <input type="date" name="input_fecha_de_nacimiento_mascota" class="form-control" placeholder="fecha de nacimiento de tu mascota" required>
-                                </div>
-
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                     <label class="label">Raza de la mascota</label>
-                                    <input type="text" name="raza_mascota" class="form-control" placeholder="Raza de la mascota" required>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label class="label">Nombre completo</label>
+                                    <input type="text" name="nombre_completo"  class="form-control" placeholder="documento del dueño" required>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                     <label class="label">Sexo de la mascota</label>
-                                   <select class="form-control" name="sexo_mascota">
-                                    <option value="M">Macho</option>
-                                    <option value="H">Hembra</option>   
-                                   </select>
+                                    <label class="label">Nombre de usuario</label>
+                                    <input type="text" name="nombre_usuario"  class="form-control" placeholder="nombre del dueño" required>
                                 </div>
 
-
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                 <label class="label">Foto de la mascota</label>
-                                <input type="text" name="input_foto_mascota" class="form-control" placeholder="Foto de la mascota">
-                            </div>
-
-                                
-                              
+                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label class="label">Contraseña</label>
+                                    <input type="password" name="contrasena" id="inputCorreo" class="form-control" placeholder="Tu Email" required>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label class="label">Estado</label>
+                                 <select class="form-control" name="estado_usuario">
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>   
+                                </select>
+                                </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                                     <button onclick="validarDatos()" type="submit" value="SEND" id="enviar" class="btn btn-light btn-radius btn-brd grd1 btn-block subt">Enviar</button>
                                 </div>
@@ -143,26 +137,8 @@
 
 
 
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">
-                    <p class="footer-links">
-                        <a href="#">Inicio</a>
-                        <a href="#">Blog</a>
-                        <!-- <a href="#">Pricing</a> -->
-                        <a href="#">Sobre Nosotros</a>
-                        <a href="#">PQR</a>
-                        <a href="#">Contacto</a>
-                    </p>
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="#">Huellitas con amor</a></p>
-                </div>
-            </div>
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end copyrights -->
-    </div>
+    
+   
 
 
 

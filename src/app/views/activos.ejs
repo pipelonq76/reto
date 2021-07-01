@@ -7,15 +7,15 @@
    
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
+
      <!-- Site Metas -->
-    <title>Donaciones</title>  
+    <title>usuarios</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="/resources/images/adoptar.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/resources/images/miku.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/resources/images/adoptar.png">
 
     <!-- Bootstrap CSS -->
@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="/resources/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/resources/css/custom.css">
+
+  
+  
+
+
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -47,7 +52,7 @@
 			<span class="leaf4"></span>
 		  </div>
 		  <div class="mus">
-			<img src="/resources/images/adoptar.png" height="50" alt="" />
+			<img src="/resources/images/miku.ico" height="50" alt="" />
 		  </div>
 		  <span class="loading" data-name="Loading">Cargando...</span>
 		</div>
@@ -63,7 +68,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 			<div class="container">
 				<a class="navbar-brand" href="/">
-					<img src="/resources/images/adoptar.png" style="border-radius: 50%" height="50" alt="" />
+					<img src="/resources/images/miku.ico" style="border-radius: 50%"  height="50" alt="" />
 				</a>
 				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar top-bar"></span>
@@ -72,21 +77,18 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-						<li class="nav-item"><a class="nav-link" href="/adopta">Adopta</a></li>
-						<li class="nav-item active"><a class="nav-link" href="/donaciones">Donaciones</a></li>
-						<li class="nav-item"><a class="nav-link" href="/sobre_nosotros">Sobre nosotros</a></li>
-						<li class="nav-item"><a class="nav-link" href="/mascotas_extraviadas">Mascotas extraviadas</a></li>
+						
+						<li class="nav-item active"><a class="nav-link" href="/activos">activos</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="/usuarios">usuarios</a></li>
+					
 						<% if (login) { %>
-							<li class="nav-item"><a class="nav-link" href="#"><%=nombre%></a></li>
+							
 							<li class="nav-item"><a class="nav-link" href="/logout">Cerrar sesión</a></li>
 						<% } else { %>
 							<li class="nav-item"><a class="nav-link" href="/login2">Iniciar Sesion</a></li>
-							<li class="nav-item"><a class="nav-link" href="/registro">Registro</a></li>
 						<% } %>
-							<% if (rol=="administrador") {%>
-						<li class="nav-item"><a class="nav-link" href="/peticiones">Peticiones</a></li>
-						<% } %>
+					
 
 					</ul>
 				</div>
@@ -96,7 +98,7 @@
 	<!-- End header -->
 
 	<!-- Page Content -->
-	<div id="page-content-wrapper">
+	<div id="page-content-wrapper">		
 		<div class="all-page-bar">
 			<div class="container">
 				<div class="row">
@@ -107,7 +109,7 @@
 							</div>
 							
 							<div class="title--heading">
-								<h1 class="titulo">Donaciones</h1>
+								<h1 class="titulo">Usuario activos</h1>
 							</div>
 							<div class="clearfix"></div>
 							
@@ -118,72 +120,45 @@
 				</div>
 			</div>
 		</div><!-- end all-page-bar -->
-
-		<div id="barbers" class="section lb">
+		
+		
+		<div id="services" class="section lb">
 			<div class="container">
 				<div class="section-title row text-center">
-					<div class="col-md-8 offset-md-2">
-						<h3>Apoya a la persona</h3>
-						<h2>que hace de este proyecto algo poible</h2>
-					</div>
-				</div><!-- end title -->
-
-				<div class="row dev-list text-center">
 					
-
-					
-
-					
-					<div class="col-lg-4 col-md-4 col-sm-12 col-s-12 wow fadeIn"> 
-					</div><!-- end col -->
-
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-						<div class="widget our-inner-taem clearfix">
-							<div class="t-top"></div>
-							<div class="hover-br">
-								<img src="/resources/images/manuela.png" alt="" class="img-responsive">
-								<div class="social-up-hover">
-									<div class="footer-social">
-										<a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-										<a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="widget-title">
-								<h3>Manuela Molina Ocampo</h3>
-								<small>Principal promotora de huellitas con amor</small>
-							</div>
-							<!-- end title -->
-							<p>Gracias a su esfuerzo y amor hacia nuestros compañeros peludos manuela ha sido capaz de ayudar a una gran cantidad de mascotas en estado de vulnerabilidad con tu ayuda manuela podra seguir ayudando a nuestros amuigitos peludos.</p>
-							<div class="t-bottom"></div>
-						</div><!--widget -->
-					</div><!-- end col -->
-
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn"> 
-				</div><!-- end row -->
-			</div><!-- end container -->
-		</div><!-- end section -->
-		<div class="section-title row text-center">
-	
-			<a href="#">
-			<img src="/resources/images/paypal.png" height="150" alt="" />
-			</a>
-
-			<a href="#">
-			<img src="/resources/images/efecty.png" height="150" alt="" />
-			</a>
-
-			<a href="#">
-			<img src="/resources/images/bancolombia.png" height="150" alt="" />
-			</a>
-			<p>Huellitas con amor Design By : <a href="https://html.design/">html design</a></p>
-					</div>
+					<% if (login) { %>
+					<a class="btn btn-light btn-radius btn-brd grd1 effect-1 mt-2" href="/formulario_nuevo_usuario">Ingresa un nuevo usuario</a>
 				</div>
-			</div><!-- end container -->
-		</div><!-- end copyrights -->
-	</div>
-   
+			</div><!-- end issue -->
+		</div><!-- end title -->
+			
+		<div class="container-fluid">
+            <div class="text-center">
+                <table class="table table-striped">
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>Nombre de usuario</th>
+                    <th>Estado</th>
+                </tr>
+                <% for (let i = 0; i < usuario.length; i++) { %>
+                    <tr>
+                    <% if (usuario[i].estado_usuario==1) { %>
+                        <th><%= usuario[i].nombre_completo_usuario %></th>
+                        <th><%= usuario[i].nombre_usuario %></th>
+                        <% if (usuario[i].estado_usuario == 1) { %>
+                        <th>activo</th>
+                        <% } %>
+                    </tr>
+                    <% } %>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
 
+			<% } else { %>
+				<a href="/">iniciar sesion</a>
+			<% } %>
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
     <!-- ALL JS FILES -->
